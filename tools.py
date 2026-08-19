@@ -23,4 +23,16 @@ def web_search(query: str) -> str:
 
     return "\n----\n".join(out)
 
-print(web_search.invoke("latest news on AI technology"))
+@tool
+def scrape_url(url: str) -> str:
+    """
+    Scrape the content of a webpage given its URL. Return the text content of the page for deeper reading.
+    """
+    try:
+        resp = requests.get(url, timeout=8 , headers={'User-Agent': 'Mozilla/5.0'})
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        for tag in soup(['script', 'style','nav', 'footer']):
+            tag.decompose()
+        return soup.get_text(separator='\n', strip=True)[:3000]  # Limit to first 3000 characters
+    except Exception as e:
+        return f"could not scrape the URL: {str(e)}"
