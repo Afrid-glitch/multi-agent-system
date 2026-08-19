@@ -1,0 +1,37 @@
+# Core LangChain / LangGraph stack
+langchain
+langchain-core
+langchain-community
+langgraph
+
+# OpenAI integration
+langchain-openai
+openai
+
+# Web search
+tavily-python
+
+# Web scraping / HTML parsing
+beautifulsoup4
+requests
+
+# Environment variables / configuration
+python-dotenv
+
+# HTTP / async support
+httpx
+aiohttp
+
+# Data validation / schemas
+pydantic
+pydantic-settings
+
+# Optional: structured parsing and HTML/XML utilities
+lxml
+
+# API / backend (useful for exposing the research agent as an API)
+fastapi
+uvicorn[standard]
+
+# Utilities
+typing-extensions
